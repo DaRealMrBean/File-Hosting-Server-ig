@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetroVault - Media Hosting</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo">Retro<span class="accent">Vault</span></h1>
+      <p class="tagline">Your Digital Archive</p>
+    </header>
+
+    <div class="main-content">
+      <!-- Upload Section -->
+      <section class="upload-section">
+        <div class="upload-box" id="dropZone">
+          <div class="upload-icon">📁</div>
+          <p class="upload-text">Drag & Drop files here</p>
+          <p class="upload-subtext">or click to browse</p>
+          <input type="file" id="fileInput" multiple accept="image/*,video/*,audio/*" hidden>
+        </div>
+        <div class="upload-progress" id="uploadProgress" style="display: none;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p id="progressText">Uploading...</p>
+        </div>
+      </section>
+
+      <!-- Controls Section -->
+      <section class="controls-section">
+        <div class="control-group">
+          <label>Filter by Type:</label>
+          <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="image">Images</option>
+            <option value="video">Videos</option>
+            <option value="audio">Audio</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label>Sort by:</label>
+          <select id="sortBy">
+            <option value="name">Name (A-Z)</option>
+            <option value="date">Date Uploaded</option>
+            <option value="size">File Size</option>
+            <option value="type">File Type</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label>Order:</label>
+          <select id="sortOrder">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Media Grid -->
+      <section class="media-section">
+        <div class="media-grid" id="mediaGrid"></div>
+      </section>
+    </div>
+
+    <!-- Media Viewer Modal -->
+    <div class="modal" id="mediaModal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModal">&times;</button>
+        
+        <div class="viewer-container" id="viewerContainer">
+          <!-- Dynamic content will be inserted here -->
+        </div>
+        
+        <div class="viewer-controls">
+          <div class="playback-controls" id="playbackControls" style="display: none;">
+            <button class="control-btn" id="btnRewind10" title="Rewind 10s">⏪ -10s</button>
+            <button class="control-btn" id="btnPlayPause" title="Play/Pause">⏯️</button>
+            <button class="control-btn" id="btnForward10" title="Forward 10s">+10s ⏩</button>
+            <button class="control-btn" id="btnSkipBack" title="Skip Back">⏮️</button>
+            <button class="control-btn" id="btnSkipForward" title="Skip Forward">⏭️</button>
+          </div>
+          
+          <div class="zoom-controls" id="zoomControls" style="display: none;">
+            <button class="control-btn" id="btnZoomOut" title="Zoom Out">🔍-</button>
+            <span class="zoom-level" id="zoomLevel">100%</span>
+            <button class="control-btn" id="btnZoomIn" title="Zoom In">🔍+</button>
+            <button class="control-btn" id="btnZoomReset" title="Reset Zoom">↺</button>
+          </div>
+          
+          <div class="volume-controls" id="volumeControls" style="display: none;">
+            <label>Volume:</label>
+            <input type="range" id="volumeSlider" min="0" max="100" value="100">
+          </div>
+          
+          <div class="fullscreen-controls">
+            <button class="control-btn" id="btnFullscreen" title="Fullscreen">⛶</button>
+          </div>
+        </div>
+        
+        <div class="file-info">
+          <h3 id="fileName"></h3>
+          <p id="fileMeta"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
