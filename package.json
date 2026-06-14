@@ -1,0 +1,17 @@
+{
+  "name": "retrovault",
+  "version": "1.0.0",
+  "description": "Retro-styled media hosting platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["media", "hosting", "file-sharing"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "uuid": "^14.0.0"
+  }
+}
